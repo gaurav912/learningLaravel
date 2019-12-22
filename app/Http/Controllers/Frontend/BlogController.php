@@ -14,4 +14,10 @@ class BlogController extends Controller
     	$latestposts = Blog::latest()->get();
     	return view('frontend.showPost',compact('posts','latestposts'));
     }
+
+    public function showindividualpost($id){
+		$post = Blog::find($id);
+		$latestposts = Blog::latest()->get();
+		return view('frontend.showindividualpost',compact('post','latestposts'));    
+	}
 }

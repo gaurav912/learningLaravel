@@ -17,6 +17,10 @@
 					<label for="desc">Description</label>
 					<textarea class="form-control" rows="5" id="desc" name="blogdesc"></textarea>
 				</div> 
+				<div class="form-group">
+					<label for="image">Image</label>
+					<input type="file" class="form-control" id="image"  name="postimage">
+				</div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 

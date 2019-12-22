@@ -27,6 +27,7 @@
 					<td>
 						<div class="row">
 							<div class="col-md-12">
+								<a href="{{route('admin.blog.show',$blog->id)}}"><button  class="btn btn-info"><i class="fa fa-eye"></i></button></a>
 								<a href="{{route('admin.blog.edit',$blog->id)}}"><button  class="btn btn-success"><i class="fa fa-pencil-square-o"></i></button></a>
 								<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deltask{{$blog->id}}"><i class="fa fa-trash-o"></i></button>
 							</div>

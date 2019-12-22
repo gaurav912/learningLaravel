@@ -14,11 +14,14 @@
 		<h2 class="display-1">TechNews</h2>
 	</div>
 
+<div class="container">
 	<div class="row">
-		<div class="leftcolumn">
+		<div class="col-md-9">
+			<div class="card">
 			@yield('blogcontents')
+			</div>
 		</div>
-		<div class="rightcolumn">
+		<div class="col-md-3">
 			<div class="card">
 				<h3>Latest Post</h3>
 				@yield('latestposts')
@@ -28,6 +31,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 
 	<div class="footer">
 		<h2>Copyright &copy; 2019-2020</h2>
