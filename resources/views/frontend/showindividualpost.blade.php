@@ -4,9 +4,9 @@
 
 <div class="row postbackgroung">
 	<div class="col-md-12 indimgblock">
-		<h2>{{ $post->title }}</h2>
-		<h5>created at: {{$post->created_at}}</h5>
 		<div class="singlepostimg"><img src="{{ asset('frontend/images/banner1.jpg') }}" class="postimage"></div>
+		<h2>{{ ucfirst($post->title) }}</h2>
+		<h5><b>{{ date('F d, Y',strtotime($post->created_at)) }}</b></h5>
 		<p>{{ $post->description}}</p>
 	</div>
 </div>
@@ -18,7 +18,7 @@
 <a href="{{ route('post.show',$latestpost->id) }}"><div class="row indlatestpost">
 	<div class="col-md-12">
 		<img src="{{ asset('frontend/images/banner1.jpg') }}" class="latestpostimg"><br/>
-		{{ $latestpost->title }}
+		{{ ucfirst($latestpost->title) }}
 	</div>
 </div></a><br>
 @endforeach

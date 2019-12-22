@@ -24,8 +24,7 @@ h2 h5 p{
 .indivpost{
   background-color: grey;
   margin: 10px ;
-  max-height:300px;
-  -webkit-line-clamp: 2;
+  max-height:400px;
 }
 .indimgblock{
   text-align: justify;

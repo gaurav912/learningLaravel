@@ -9,9 +9,9 @@
 		<img src="{{ asset('frontend/images/banner1.jpg') }}" class="postimage">
 	</div>
 	<div class="col-md-8 descblock">
-		<h2>{{ $post->title }}</h2>
-		<h5>created at: {{$post->created_at}}</h5>
-		<p>{{ $post->description}}</p>
+		<h2>{{ ucfirst($post->title) }}</h2>
+		<h6><b>{{ date('F d, Y',strtotime($post->created_at)) }}</b></h6>
+		<p><?php echo substr($post->description,0,210); ?>...</p>
 		<a href="{{ route('post.show',$post->id) }}"><button class="btn btn-info">Read more</button></a>
 	</div>
 </div>
@@ -24,7 +24,7 @@
 <a href="{{ route('post.show',$latestpost->id) }}"><div class="row indlatestpost">
 	<div class="col-md-12">
 		<img src="{{ asset('frontend/images/banner1.jpg') }}" class="latestpostimg"><br/>
-		{{ $latestpost->title }}
+		{{ ucfirst($latestpost->title) }}
 	</div>
 </div></a><br>
 @endforeach
