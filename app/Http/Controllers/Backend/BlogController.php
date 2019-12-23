@@ -10,7 +10,7 @@ use App\Blog;
 class BlogController extends Controller
 {
     public function index(){
-    	$blogs = DB::table('blogs')->select('id','title','description')->get();
+    	$blogs = DB::table('blogs')->select('id','title','description')->paginate(5);
         return view('admin.blog',compact('blogs'));
     }
 
@@ -22,6 +22,13 @@ class BlogController extends Controller
     	$post = new Blog();
     	$post->title = $request['blogtitle'];
     	$post->description = $request['blogdesc'];
+        if($request->hasFile('postimage')){
+            $extension = $request->postimage->getClientOriginalExtension();
+            $image_name = md5(time()).".".$extension;
+            $destination ='uploads/blog/image';
+            $request->postimage->move($destination,$image_name);
+            $post->image= $image_name;
+        }
     	$post->save();
     	return redirect('/admin/blog')->with('success','Post is successfully created');
     }
@@ -49,5 +56,4 @@ class BlogController extends Controller
     	Blog::find($id)->delete();
     	return redirect('/admin/blog')->with('error','Post is successfully deleted');
     }
-
 }

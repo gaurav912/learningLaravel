@@ -10,7 +10,7 @@ use App\Blog;
 class BlogController extends Controller
 {
     public function index(){
-    	$posts = DB::table('blogs')->select('id','title','description','created_at')->get();
+    	$posts = Blog::get();
     	$latestposts = Blog::latest()->get();
     	return view('frontend.showPost',compact('posts','latestposts'));
     }

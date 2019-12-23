@@ -7,7 +7,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<form action="/admin/blog/store" method="post">
+			<form action="/admin/blog/store" method="post" enctype="multipart/form-data">
 				@csrf
 				<div class="form-group">
 					<label for="title">Title</label>
@@ -15,7 +15,8 @@
 				</div>
 				<div class="form-group">
 					<label for="desc">Description</label>
-					<textarea class="form-control" rows="5" id="desc" name="blogdesc"></textarea>
+					<textarea name="blogdesc" id="desc" class="form-control my-editor"></textarea>
+
 				</div> 
 				<div class="form-group">
 					<label for="image">Image</label>
