@@ -1,6 +1,4 @@
 @extends('frontend.frontendmaster')
-
-
 @section('blogcontents')
 
 @foreach($posts as $post)
@@ -28,4 +26,13 @@
 	</div>
 </div></a><br>
 @endforeach
+
+@section('ads')
+<div class="row">
+	<div class="col-md-12">
+			
+	</div>
+</div>
+@endsection
+
 @endsection

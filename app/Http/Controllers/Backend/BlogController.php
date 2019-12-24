@@ -10,7 +10,7 @@ use App\Blog;
 class BlogController extends Controller
 {
     public function index(){
-    	$blogs = DB::table('blogs')->select('id','title','description')->paginate(5);
+    	$blogs = Blog::paginate(5);
         return view('admin.blog',compact('blogs'));
     }
 
@@ -22,6 +22,7 @@ class BlogController extends Controller
     	$post = new Blog();
     	$post->title = $request['blogtitle'];
     	$post->description = $request['blogdesc'];
+        $post->slug = \Str::slug($request['blogtitle']);
         if($request->hasFile('postimage')){
             $extension = $request->postimage->getClientOriginalExtension();
             $image_name = md5(time()).".".$extension;
@@ -45,10 +46,23 @@ class BlogController extends Controller
 
     public function update(Request $request){
     	$post = Blog::findOrFail($request->id);
-        $post->title = request('blogtitle');
-        $post->description = request('blogdesc');
-        if($post->save()){
+        $post->title = $request['blogtitle'];
+        $post->description = $request['blogdesc'];
+        $post->slug = \Str::slug($request['blogtitle']);
+        if($request->hasFile('postimage')){
+            $extension = $request->postimage->getClientOriginalExtension();
+            $image_name = md5(time()).".".$extension;
+            $destination ='uploads/blog/image';
+            $request->postimage->move($destination,$image_name);
+            $post->image= $image_name;
+
+        }
+        $update = $post->save();
+        if($update){
        		return redirect('/admin/blog')->with('success','Post is successflly updated');
+        }
+        else{
+            return redirect()->back()->with('error','Post is not updated');       
         }
     }
 

@@ -63,8 +63,10 @@ h2 h5 p{
   width: 80%;
   max-height: 100px;
 }
+
 .indlatestpost{
   margin: 10px 5px;
+  text-align: center;
 }
 
 /* Clear floats after the columns */

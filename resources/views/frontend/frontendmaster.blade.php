@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="header">
-		<h2 class="display-1">TechNews</h2>
+		<a href="/"><h2 class="display-1">TechNews</h2></a>
 	</div>
 
 <div class="container">
@@ -23,11 +23,12 @@
 		</div>
 		<div class="col-md-3">
 			<div class="card">
-				<h3>Latest Post</h3>
+				<h3 style="text-align: center;">Latest Post</h3>
 				@yield('latestposts')
 			</div>
 			<div class="card">
 				<h3>Ads here</h3>
+				@yield('ads')
 			</div>
 		</div>
 	</div>

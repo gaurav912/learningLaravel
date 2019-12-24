@@ -3,6 +3,12 @@
 @section('pagetitle','Blog')
 
 @section('viewarea')
+<style>
+	.user-image{
+		height:50px;
+		width: 50px;
+	}
+</style>
 
 <div class="container">
 	<div class="row">
@@ -18,13 +24,15 @@
 					<tr>
 						<th>Title</th>
 						<th>Description</th>
+						<th>Thumbnail</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				@foreach($blogs as $blog)
 				<tr>
 					<td>{!!\Illuminate\Support\Str::limit($blog->title,30,$end='...')!!}</td>
-					<td>{!!\Illuminate\Support\Str::limit($blog->description, 90, $end='...') !!}</td>
+					<td>{!!\Illuminate\Support\Str::limit($blog->description, 80, $end='...') !!}</td>
+					<td><img src="/uploads/blog/image/{{$blog->image}}" class="user-image"></td>
 					<td>
 						<div class="row">
 							<div class="col-md-12">
